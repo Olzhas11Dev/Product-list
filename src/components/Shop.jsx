@@ -69,7 +69,7 @@ function Shop() {
             return (
               <div
                 key={item.id}
-                className=" border bg-secondary d-flex align-items-center justify-content-between  mb-2 p-2 text-white rounded ">
+                className=" border bg-secondary  align-items-center justify-content-between  mb-2 p-2 text-white rounded ">
                 <div className="d-flex">
                   <div style={{ width: '120px' }}>{item.title}</div>
                   <div style={{ marginLeft: '20px' }}>| {item.price}</div>
