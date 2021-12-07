@@ -35,12 +35,19 @@ function Shop() {
     return sum;
   };
 
+  const hanleRenove = async (elem) => {
+    console.log(elem.id);
+    await Axios.delete(`https://61a71b7b8395690017be94e1.mockapi.io/basketData/${elem.id}`);
+
+    getBasketProduct();
+  };
+
   return (
     <div className="container">
       <div className="row">
-        <div className="col-lg-9">
+        <div className="col-lg-9 order-1 order-lg-0 order-md-1 ">
           <div className="row">
-            <h5 className="mt-4 mb-4">{total.toFixed(2)}</h5>
+            <h5 className="mt-4 mb-4">Total: {total.toFixed(2)}</h5>
 
             {data.map((e) => {
               return (
@@ -55,16 +62,21 @@ function Shop() {
             })}
           </div>
         </div>
-        <div className="col-lg-3  ">
+        <div className="col-lg-3 order-lg-1 order-md-0 order-0 ">
           <h5 className="mt-4 mb-4">Basket</h5>
 
           {basketData.map((item) => {
             return (
               <div
                 key={item.id}
-                className=" border bg-secondary d-flex justify-content-between mb-2 p-2 text-white">
-                <div>{item.title}</div>
-                <div>{item.price}</div>
+                className=" border bg-secondary d-flex align-items-center justify-content-between  mb-2 p-2 text-white">
+                <div className="d-flex">
+                  <div style={{ width: '120px' }}>{item.title}</div>
+                  <div style={{ marginLeft: '20px' }}>| {item.price}</div>
+                </div>
+                <button onClick={() => hanleRenove(item)} className="btn btn-secondary">
+                  Remove
+                </button>
               </div>
             );
           })}
@@ -75,9 +87,3 @@ function Shop() {
 }
 
 export default Shop;
-
-// 1)Get data(main products) to render products
-// 2)addToBasket function to post request
-// 3)To render it create a function and store in hook basketData
-// Total cost .
-//
