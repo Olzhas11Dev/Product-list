@@ -6,31 +6,33 @@ function Shop() {
   const [basketData, setBasketData] = React.useState([]);
   const [total, setTotal] = React.useState(0);
 
-  React.useEffect(() => {
-    Axios.get('https://61a71b7b8395690017be94e1.mockapi.io/products').then((res) => {
-      setData(res.data);
-    });
-    getDataBasket();
+  //Render carts
+  React.useEffect(async () => {
+    const response = await Axios.get('https://61a71b7b8395690017be94e1.mockapi.io/products');
+    setData(response.data);
+
+    getBasketProduct();
   }, []);
 
-  const getDataBasket = async () => {
-    const response = await Axios.get('https://61a71b7b8395690017be94e1.mockapi.io/basketData');
-    setBasketData(response.data);
-    setTotal(getTotal(response.data));
+  const addToBasket = async (product) => {
+    await Axios.post('https://61a71b7b8395690017be94e1.mockapi.io/basketData', product);
+
+    getBasketProduct();
+  };
+
+  const getBasketProduct = async () => {
+    const respose = await Axios.get('https://61a71b7b8395690017be94e1.mockapi.io/basketData');
+    setBasketData(respose.data);
+
+    setTotal(getTotal(respose.data));
   };
 
   const getTotal = (data) => {
     let sum = 0;
-    data?.map((item) => {
-      sum += item.price;
+    data.map((el) => {
+      sum += el.price;
     });
     return sum;
-  };
-
-  const addToBasket = async (item) => {
-    await Axios.post('https://61a71b7b8395690017be94e1.mockapi.io/basketData', item);
-    getDataBasket();
-    setTotal(getTotal(basketData));
   };
 
   return (
@@ -73,3 +75,9 @@ function Shop() {
 }
 
 export default Shop;
+
+// 1)Get data(main products) to render products
+// 2)addToBasket function to post request
+// 3)To render it create a function and store in hook basketData
+// Total cost .
+//
