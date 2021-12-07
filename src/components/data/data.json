@@ -54,5 +54,75 @@
     "img": "/img/products/Chocolate.png",
     "quantity": 1,
     "id": "8"
+  },
+  {
+    "title": "Philadelphia",
+    "price": 4,
+    "img": "/img/products/Philadelphia.png",
+    "quantity": 1,
+    "id": "9"
+  },
+  {
+    "title": "Cream Chees",
+    "price": 3.99,
+    "img": "/img/products/Cream Chees.png",
+    "quantity": 1,
+    "id": "10"
+  },
+  {
+    "title": "Camembert",
+    "price": 2.9,
+    "img": "/img/products/Camembert.png",
+    "quantity": 1,
+    "id": "11"
+  },
+  {
+    "title": "Colby Chees",
+    "price": 10.79,
+    "img": "/img/products/Colby Chees.png",
+    "quantity": 1,
+    "id": "12"
+  },
+  {
+    "title": "Cucumber",
+    "price": 1.49,
+    "img": "/img/products/Cucumber.png",
+    "quantity": 1,
+    "id": "13"
+  },
+  {
+    "title": "Tomatoes",
+    "price": 5.49,
+    "img": "/img/products/Tomatoes.png",
+    "quantity": 1,
+    "id": "14"
+  },
+  {
+    "title": "Almond Milk",
+    "price": 2.79,
+    "img": "/img/products/Almond Milk.png",
+    "quantity": 1,
+    "id": "15"
+  },
+  {
+    "title": "Sugar",
+    "price": 2.5,
+    "img": "/img/products/Sugar.png",
+    "quantity": 1,
+    "id": "16"
+  },
+  {
+    "title": "Chicken Drumsticks",
+    "price": 2.5,
+    "img": "/img/products/Chicken Drumsticks.png",
+    "quantity": 1,
+    "id": "17"
+  },
+  {
+    "title": "Whole Duck",
+    "price": 21.99,
+    "img": "/img/products/Whole Duck.png",
+    "quantity": 1,
+    "id": "18"
   }
 ]
