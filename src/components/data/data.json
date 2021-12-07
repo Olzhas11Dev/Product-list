@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Milk",
+    "price": 3.69,
+    "img": "img/products/Milk.png",
+    "quantity": 1,
+    "id": "1"
+  },
+  {
+    "title": "Flour",
+    "price": 1.8,
+    "img": "img/products/Flour.png",
+    "quantity": 1,
+    "id": "2"
+  },
+  {
+    "title": "Apple",
+    "price": 3.99,
+    "img": "img/products/Apple.png",
+    "quantity": 1,
+    "id": "3"
+  },
+  {
+    "title": "Beef Mince",
+    "price": 20.99,
+    "img": "img/products/Beef_mince.png",
+    "quantity": 1,
+    "id": "4"
+  },
+  {
+    "title": "Chicken Breast",
+    "price": 10.99,
+    "img": "img/products/Chicken_Breast.png",
+    "quantity": 1,
+    "id": "5"
+  },
+  {
+    "title": "Potato",
+    "price": 6.49,
+    "img": "/img/products/Potatos.png",
+    "quantity": 1,
+    "id": "6"
+  },
+  {
+    "title": "Salmon",
+    "price": 36.99,
+    "img": "/img/products/Salmon.png",
+    "quantity": 1,
+    "id": "7"
+  },
+  {
+    "title": "Chocolate",
+    "price": 4.6,
+    "img": "/img/products/Chocolate.png",
+    "quantity": 1,
+    "id": "8"
+  }
+]
