@@ -89,11 +89,11 @@ function Shop() {
               <div
                 key={item.id}
                 className=" border bg-secondary d-flex align-items-center justify-content-between  mb-2 p-2 text-white rounded ">
-                <div className="d-flex">
-                  <div style={{ width: '120px' }}>
+                <div className="d-flex" style={{ fontSize: '12px' }}>
+                  <div style={{ width: '125px' }}>
                     {item.title} {item.quantity}
                   </div>
-                  <div style={{ marginLeft: '20px' }}>| {item.price}</div>
+                  <div style={{ marginLeft: '20px' }}>| {item.price * item.quantity}</div>
                 </div>
                 <button onClick={() => hanleRenove(item)} className="btn btn-secondary">
                   Remove
