@@ -26,7 +26,6 @@ function Shop() {
     } else {
       await Axios.post('https://61a71b7b8395690017be94e1.mockapi.io/basketData', product);
     }
-    // await Axios.post('https://61a71b7b8395690017be94e1.mockapi.io/basketData', product);
 
     getBasketProduct();
   };
@@ -66,7 +65,7 @@ function Shop() {
       <div className="row">
         <div className="col-lg-9 order-1 order-lg-0 order-md-1 ">
           <div className="row">
-            <h5 className="mt-4 mb-4">Total: {total.toFixed(2)}</h5>
+            <h5 className="mt-4 mb-4">Total: $ {total.toFixed(2)}</h5>
 
             {data.map((e) => {
               return (
@@ -76,6 +75,7 @@ function Shop() {
                   className="card item col-lg-3 col-md-4 col-sm-6 col-6 "
                   key={e.id}>
                   <img className="img-fluid max-width: 100% height: auto" src={e.img} alt="" />
+                  <div>{e.title}</div>
                 </div>
               );
             })}
@@ -93,7 +93,9 @@ function Shop() {
                   <div style={{ width: '125px' }}>
                     {item.title} {item.quantity}
                   </div>
-                  <div style={{ marginLeft: '20px' }}>| {item.price * item.quantity}</div>
+                  <div style={{ marginLeft: '20px' }}>
+                    | {(item.price * item.quantity).toFixed(2)}
+                  </div>
                 </div>
                 <button onClick={() => hanleRenove(item)} className="btn btn-secondary">
                   Remove
