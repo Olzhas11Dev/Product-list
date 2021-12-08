@@ -21,7 +21,7 @@ function AddItems() {
       let newProduct = {
         title,
         price: +price,
-        img: '',
+        img: 'img/products/question-mark.png',
         quantity: 1,
         id: Date.now(),
       };
