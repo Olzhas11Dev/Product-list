@@ -16,7 +16,17 @@ function Shop() {
   }, []);
 
   const addToBasket = async (product) => {
-    await Axios.post('https://61a71b7b8395690017be94e1.mockapi.io/basketData', product);
+    let founded = basketData.find((el) => el.title === product.title);
+    if (founded) {
+      founded.quantity += 1;
+      await Axios.put(
+        `https://61a71b7b8395690017be94e1.mockapi.io/basketData/${founded.id}`,
+        founded,
+      );
+    } else {
+      await Axios.post('https://61a71b7b8395690017be94e1.mockapi.io/basketData', product);
+    }
+    // await Axios.post('https://61a71b7b8395690017be94e1.mockapi.io/basketData', product);
 
     getBasketProduct();
   };
@@ -31,7 +41,7 @@ function Shop() {
   const getTotal = (data) => {
     let sum = 0;
     data.map((el) => {
-      sum += el.price;
+      sum += el.price * el.quantity;
     });
     return sum;
   };
@@ -80,7 +90,9 @@ function Shop() {
                 key={item.id}
                 className=" border bg-secondary d-flex align-items-center justify-content-between  mb-2 p-2 text-white rounded ">
                 <div className="d-flex">
-                  <div style={{ width: '120px' }}>{item.title}</div>
+                  <div style={{ width: '120px' }}>
+                    {item.title} {item.quantity}
+                  </div>
                   <div style={{ marginLeft: '20px' }}>| {item.price}</div>
                 </div>
                 <button onClick={() => hanleRenove(item)} className="btn btn-secondary">
