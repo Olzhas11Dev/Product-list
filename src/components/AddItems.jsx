@@ -1,6 +1,7 @@
 import React from 'react';
-import Axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { AddNewProducts } from '../actions/productActions';
 
 function AddItems() {
   const [title, setTitle] = React.useState('');
@@ -8,9 +9,11 @@ function AddItems() {
   const [errorEpmty, setErrorEmpty] = React.useState(false);
   const [error, setError] = React.useState(false);
 
+  const dispatch = useDispatch();
+
   let navigate = useNavigate();
 
-  const addToProduct = async () => {
+  const addToProduct = () => {
     if (!title || !price) {
       setErrorEmpty(true);
       setError(false);
@@ -26,7 +29,8 @@ function AddItems() {
         id: Date.now(),
       };
 
-      await Axios.post('https://61a71b7b8395690017be94e1.mockapi.io/products', newProduct);
+      // await Axios.post('https://61a71b7b8395690017be94e1.mockapi.io/products', newProduct);
+      dispatch(AddNewProducts(newProduct));
 
       setError(false);
       setErrorEmpty(false);
