@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { getTotal } from '../components/Shop';
+// import { getTotal } from '../components/Shop';
 
 export const fetchBasketData = () => {
   return async (dispatch) => {
@@ -9,7 +9,7 @@ export const fetchBasketData = () => {
   };
 };
 
-export const addToBasket = (product, basketData) => {
+export const addToBasketAction = (product, basketData) => {
   return async (dispatch) => {
     let founded = basketData.find((el) => el.title === product.title);
     if (founded) {
@@ -30,4 +30,14 @@ export const removeItemAction = (elem) => {
     await Axios.delete(`https://61a71b7b8395690017be94e1.mockapi.io/basketData/${elem.id}`);
     dispatch(fetchBasketData());
   };
+};
+
+//helpers
+const getTotal = (data) => {
+  console.log(data, 'from getTotl');
+  let sum = 0;
+  data?.map((el) => {
+    sum += el.price * el.quantity;
+  });
+  return sum;
 };

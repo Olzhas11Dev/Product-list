@@ -1,9 +1,9 @@
 import React from 'react';
-import Axios from 'axios';
+
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../actions/productActions';
-import { fetchBasketData, addToBasket, removeItemAction } from '../actions/basketActions';
+import { fetchBasketData, addToBasketAction, removeItemAction } from '../actions/basketActions';
 
 function Shop() {
   const dispatch = useDispatch();
@@ -15,10 +15,6 @@ function Shop() {
     dispatch(fetchProducts());
     dispatch(fetchBasketData());
   }, [dispatch]);
-
-  // const hanleRenove = async (elem) => {
-  //   await Axios.delete(`https://61a71b7b8395690017be94e1.mockapi.io/basketData/${elem.id}`);
-  // };
 
   return (
     <div className="container">
@@ -40,7 +36,7 @@ function Shop() {
             {allProducts.map((e) => {
               return (
                 <div
-                  onClick={() => dispatch(addToBasket(e, basketProducts))}
+                  onClick={() => dispatch(addToBasketAction(e, basketProducts))}
                   style={{ cursor: 'pointer' }}
                   className="card item col-lg-3 col-md-4 col-sm-6 col-6 "
                   key={e.id}>
